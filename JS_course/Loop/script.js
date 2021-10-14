@@ -4,7 +4,7 @@ let distance = 0;
 while (fuel > 0) {
   distance++;
   if (distance >= 100 && distance <= 200) {
-    //ends current iteration and jumps into the next
+    //ends current iteration and jumps to top line
     continue;
   }
 
