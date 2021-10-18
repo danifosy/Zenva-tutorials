@@ -5,29 +5,31 @@ const question = {
 };
 console.log(question);
 
-start();
+const app = {
+  start: function () {
+    const alternatives = document.querySelectorAll(".alternatives");
 
-function start() {
-  const alternatives = document.querySelectorAll(".alternatives");
-
-  alternatives.forEach(function (element, index) {
-    element.addEventListener("click", function () {
-      console.log("check correct answer");
+    alternatives.forEach(function (element, index) {
+      element.addEventListener("click", function () {
+        console.log("check correct answer");
+      });
     });
-  });
-  showQuestion(question);
-}
+    this.showQuestion(question);
+  },
 
-function showQuestion(q) {
-  const titleDiv = document.getElementById("title");
-  const alternatives = document.querySelectorAll(".alternatives");
+  showQuestion: function (question) {
+    const titleDiv = document.getElementById("title");
+    const alternatives = document.querySelectorAll(".alternatives");
 
-  titleDiv.textContent = q.title;
+    titleDiv.textContent = question.title;
 
-  alternatives.forEach(function (element, index) {
-    element.textContent = q.alternatives[index];
-  });
-}
+    alternatives.forEach(function (element, index) {
+      element.textContent = question.alternatives[index];
+    });
+  },
+};
+
+app.start();
 
 const btn = document.getElementById("btn");
 
