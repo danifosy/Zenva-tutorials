@@ -5,7 +5,18 @@ const question = {
 };
 console.log(question);
 
-showQuestion(question);
+start();
+
+function start() {
+  const alternatives = document.querySelectorAll(".alternatives");
+
+  alternatives.forEach(function (element, index) {
+    element.addEventListener("click", function () {
+      console.log("check correct answer");
+    });
+  });
+  showQuestion(question);
+}
 
 function showQuestion(q) {
   const titleDiv = document.getElementById("title");
@@ -15,14 +26,6 @@ function showQuestion(q) {
 
   alternatives.forEach(function (element, index) {
     element.textContent = q.alternatives[index];
-
-    element.addEventListener("click", function () {
-      if (q.correctAnswer === index) {
-        console.log("correct answer");
-      } else {
-        console.log("wrong answer");
-      }
-    });
   });
 }
 
