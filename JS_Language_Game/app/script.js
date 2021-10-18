@@ -15,6 +15,14 @@ function showQuestion(q) {
 
   alternatives.forEach(function (element, index) {
     element.textContent = q.alternatives[index];
+
+    element.addEventListener("click", function () {
+      if (q.correctAnswer === index) {
+        console.log("correct answer");
+      } else {
+        console.log("wrong answer");
+      }
+    });
   });
 }
 
