@@ -17,3 +17,9 @@ function showQuestion(q) {
     element.textContent = q.alternatives[index];
   });
 }
+
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", function () {
+  console.log("Clicked!");
+});
