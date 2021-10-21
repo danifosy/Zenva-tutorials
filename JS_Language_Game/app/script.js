@@ -1,13 +1,30 @@
-//object for question
-const question = {
-  title: "gato",
-  alternatives: ["dog", "cat", "bird", "fish"],
-  correctAnswer: 1,
-};
-console.log(question);
+const questions = [
+  {
+    title: "gato",
+    alternatives: ["dog", "cat", "bird", "fish"],
+    correctAnswer: 1,
+  },
+  {
+    title: "ave",
+    alternatives: ["mouse", "hamster", "lizard", "bird"],
+    correctAnswer: 3,
+  },
+  {
+    title: "rata",
+    alternatives: ["cat", "fish", "rat", "shark"],
+    correctAnswer: 2,
+  },
+  {
+    title: "mosca",
+    alternatives: ["fly", "puma", "fish", "dog"],
+    correctAnswer: 0,
+  },
+];
 
 const app = {
   start: function () {
+    this.currentPosition = 0;
+
     //get alternatives
     const alternatives = document.querySelectorAll(".alternative");
 
