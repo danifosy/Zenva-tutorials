@@ -24,6 +24,7 @@ const questions = [
 const app = {
   start: function () {
     this.currentPosition = 0;
+    this.score = 0;
 
     //get alternatives
     const alternatives = document.querySelectorAll(".alternative");
@@ -36,6 +37,9 @@ const app = {
         this.checkAnswer(index);
       });
     });
+
+    this.updateStats();
+
     //show first question
     this.showQuestion(questions[this.currentPosition]);
   },
@@ -61,12 +65,16 @@ const app = {
     if (currentQuestion.correctAnswer === userSelected) {
       //correct
       console.log("correct");
+      this.score++;
     } else {
       //not correct
       console.log("wrong");
     }
+    //refresh stats
+    this.updateStats();
     // increase position
     this.increasePosition();
+
     //show next
     this.showQuestion(questions[this.currentPosition]);
   },
@@ -76,8 +84,13 @@ const app = {
     this.currentPosition++;
 
     if (this.currentPosition === questions.length) {
-      currentPosition = 0;
+      this.currentPosition = 0;
     }
+  },
+
+  updateStats: function () {
+    let scoreDiv = document.getElementById("score");
+    scoreDiv.textContent = `Your score: ${this.score}`;
   },
 };
 
