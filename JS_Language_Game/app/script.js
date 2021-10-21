@@ -66,7 +66,19 @@ const app = {
       //not correct
       console.log("wrong");
     }
+    // increase position
+    this.increasePosition();
   },
+
+  increasePosition: () => {
+    this.currentPosition++;
+
+    if (this.currentPosition === questions.length) {
+      this.currentPosition = 0;
+    }
+  },
+
+  //show next question
 };
 
 // start app
