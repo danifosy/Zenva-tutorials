@@ -11,11 +11,12 @@ const app = {
     //get alternatives
     const alternatives = document.querySelectorAll(".alternative");
 
-    alternatives.forEach(function (element, index) {
-      element.addEventListener("click", function () {
+    //with .bind(this) you can pass context within or turn your functions into arrow functions
+
+    alternatives.forEach((element, index) => {
+      element.addEventListener("click", () => {
         //check correct answers
         this.checkAnswer(index);
-        console.log("check correct answer");
       });
     });
     //show first question
@@ -34,6 +35,8 @@ const app = {
     const alternatives = document.querySelectorAll(".alternative");
 
     alternatives.forEach(function (element, index) {
+      console.log(this);
+
       element.textContent = question.alternatives[index];
     });
   },
@@ -41,8 +44,10 @@ const app = {
   checkAnswer: function (userSelected) {
     if (this.currentQuestion.correctAnswer === userSelected) {
       //correct
+      console.log("correct");
     } else {
       //not correct
+      console.log("wrong");
     }
   },
 };
